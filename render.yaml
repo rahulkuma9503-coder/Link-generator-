@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: telegram-bot
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python bot.py
+    envVars:
+      - key: BOT_TOKEN
+        fromSecret: BOT_TOKEN
+      - key: OWNER_ID
+        fromSecret: OWNER_ID
+      - key: PORT
+        value: 5000
+      - key: SUPPORT_GROUP
+        value: your_support_group_username  # Without @
+      - key: UPDATE_CHANNEL
+        value: your_update_channel_username  # Without @
